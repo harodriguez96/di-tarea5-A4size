@@ -1,27 +1,58 @@
-#container {
+/* Estilos generales */
+.dashboard-content {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Encabezado */
+.header {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: xx-large;
+}
+/* Contenedor de gráficos */
+.charts-container {
+  display: inline-flex;
+  justify-content: space-around; /* Distribución más uniforme */
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los gráficos se ajusten */
+  width: 100%;
+  margin: 0 auto; /* Centrar contenedor */
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* Títulos de gráficos */
+.chart-title {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* Contenedor de tablas */
+.table-container {
+  padding-top: 55px;
+  background-color: #fff;
+  max-width: 100%;
+  min-width: 200px;
+  text-align: center;
 }
 
-#container a {
-  text-decoration: none;
+/* Contenedor de listas */
+.list-container {
+  padding-top: 55px;
+  background-color: #fff;
+  max-width: 100%;
+  min-width: 200px;
+  text-align: left;
+}
+
+
+@media screen and (max-width: 768px) {
+  .charts-container {
+    flex-direction: column; /* Apilar gráficos en pantallas pequeñas */
+  }
+  .chart-col {
+    width: 100%; /* Usar el ancho completo */
+  }
 }

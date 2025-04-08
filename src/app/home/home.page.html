@@ -1,47 +1,68 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Gráficos
-    </ion-title>
-    <ion-segment [value]="tipoDeChartSeleccionado" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="bar-chart">
-        Bar Chart
-      </ion-segment-button>
-      <ion-segment-button value="line-chart">
-        Line Chart
-      </ion-segment-button>
-      <ion-segment-button value="pie-chart">
-        Pie Chart
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+<ion-header>
+  <ion-title class="ion-text-center header">
+    Visualizacion de Datos
+  </ion-title>
+  <ion-button (click)="generarPDF()">Generar PDF</ion-button>
 </ion-header>
 
-<!-- Mostrar u ocultar componentes según el segmento seleccionado -->
 <ion-content [fullscreen]="true">
-  <!--En el caso de bar-chart mostraremos el ion-grid con los 3 gráficos-->
-  <ion-grid *ngIf="tipoDeChartSeleccionado === 'bar-chart'">
-    <ion-row>
-      <ion-col size="6">
-        <app-bar-chart [borderColorCategorias]="borderColorCat" [backgroundColorCategorias]="backgroundColorCat"></app-bar-chart>
-      </ion-col>
-      <ion-col size="6">
-        <ion-row>
-          <ion-col size="12">
-            <app-line-chart></app-line-chart>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="12">
-            <app-pie-chart></app-pie-chart>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div #container>
+    <div class="dashboard-content">
+      <div class="seccion header">
+        <h1>Dashboard</h1>
+      </div>
 
-  <!--En el segmento "Line-Chart" mostraremos únicamente su correspondiente gráfica-->
-  <app-line-chart *ngIf="tipoDeChartSeleccionado === 'line-chart'"></app-line-chart>
-  <!--En el segmento "Pie-Chart" mostraremos únicamente su correspondiente gráfica-->
-  <app-pie-chart *ngIf="tipoDeChartSeleccionado === 'pie-chart'"></app-pie-chart>
+      <div class="seccion charts-container">
+        <ion-col>
+          <div class="chart-title">Bar Chart</div>
+          <app-bar-chart [borderColorCategorias]="borderColorCat" [backgroundColorCategorias]="backgroundColorCat"></app-bar-chart>
+        </ion-col>
+        <ion-col>
+          <div class="chart-title">Pie Chart</div>
+          <app-pie-chart></app-pie-chart>
+        </ion-col>
+        <ion-col>
+          <div class="chart-title">Line Chart</div>
+          <app-line-chart></app-line-chart>
+        </ion-col>
+      </div>
+
+      <div class="table-container">
+        <h2 class="seccion">Table</h2>
+        <app-tablas [datosTabla]="datosTablaTab1"></app-tablas>
+      </div>
+      <div class="seccion list-container">
+        <h2 class="header">List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+      <div class="table-container">
+        <h2 class="seccion">Table</h2>
+        <app-tablas [datosTabla]="datosTablaTab1"></app-tablas>
+      </div>
+      <div class="table-container">
+        <h2 class="seccion">Table</h2>
+        <app-tablas [datosTabla]="datosTablaTab1"></app-tablas>
+      </div>
+      <div class="seccion list-container">
+        <h2 class="header">List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+      <div class="seccion list-container">
+        <h2 class="header">List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+      <div class="seccion list-container">
+        <h2 class="header">List</h2>
+        <ul *ngFor="let lista of datosLista">
+          <li>{{lista}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </ion-content>
