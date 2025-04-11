@@ -1,3 +1,4 @@
+<h2 class="seccion">Table</h2>
 <div *ngFor="let row of datosTabla | tablePipe: 10">
   <div class="divTabla" [ngClass]="{'seccion': row.length <= 10}">
     <!-- Aquí creamos una tabla por cada conjunto de 20 filas -->
